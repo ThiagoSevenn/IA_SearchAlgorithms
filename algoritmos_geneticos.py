@@ -353,7 +353,7 @@ def main_etapa2():
     gens_conv = []
     best_r, best_d, h_elit = None, float('inf'), []
 
-    total_rodadas = 30 # Define quantas vezes vai rodar
+    total_rodadas = 50 # Define quantas vezes vai rodar
     print(f"\nRodando {total_rodadas} vezes para estatísticas...")
 
     for i in range(total_rodadas):
