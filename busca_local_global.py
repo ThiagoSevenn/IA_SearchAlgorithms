@@ -283,8 +283,9 @@ def main_etapa1():
     plt.tight_layout(rect=[0, 0, 1, 0.96])
 
     # FIGURA 3: SCATTER FINAL (Dispersão no Espaço de Busca)
+    # FIGURA 3: SCATTER FINAL (Dispersão no Espaço de Busca)
     fig3, axs3 = plt.subplots(2, 3, figsize=(18, 10))
-    fig3.suptitle("ETAPA 1 - Scatter Final (Onde as 100 rodadas terminaram)")
+    fig3.suptitle("ETAPA 1 - Scatter Final (Onde as 100 rodadas terminaram)", fontsize=16, y=0.95)
     axs3 = axs3.ravel()
     colors = {'Hill Climbing': 'red', 'LRS': 'blue', 'GRS': 'green'}
 
@@ -295,18 +296,21 @@ def main_etapa1():
             if coords.size == 0:
                 continue
             ax.scatter(coords[:, 0], coords[:, 1], s=15, alpha=0.6,
-                       c=colors.get(algo_name, 'black'), label=algo_name)
-
+                    c=colors.get(algo_name, 'black'), label=algo_name)
+        
         bounds = PROBLEMAS[pid]['bounds']
         ax.set_xlim(bounds[0])
         ax.set_ylim(bounds[1])
-        ax.set_title(PROBLEMAS[pid]['name'])
+        ax.set_title(PROBLEMAS[pid]['name'], fontsize=12)
+        
         if i == 0:
-            ax.legend() 
+            ax.legend(fontsize=10)
 
-    plt.tight_layout(rect=[0, 0, 1, 0.96])
-
+    # Ajusta o layout sem sobrepor textos
+    fig3.tight_layout(rect=[0, 0, 1, 0.94])  # deixa espaço para o suptitle
     plt.show()
+    plt.close(fig3)  # fecha a figura para evitar conflitos
+
 
 if __name__ == "__main__":
     main_etapa1()
